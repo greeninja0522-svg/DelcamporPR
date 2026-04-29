@@ -1,0 +1,84 @@
+// INVENTARIO
+const products = [
+    { 
+        name: "Huevos Frescos de Granja", 
+        price: 5.99, 
+        stock: 20,
+        description: "Huevos 100% frescos, criados en granja libre"
+    },
+    { 
+        name: "Queso Artesanal", 
+        price: 8.50, 
+        stock: 15,
+        description: "Queso de leche fresca hecho por manos expertas"
+    },
+    { 
+        name: "Pan Casero", 
+        price: 4.99, 
+        stock: 25,
+        description: "Pan integral recién horneado cada mañana"
+    },
+    { 
+        name: "Café Puertorriqueño", 
+        price: 10.99, 
+        stock: 10,
+        description: "Café de montaña, tostado y molido localmente"
+    }
+];
+
+// MOSTRAR PRODUCTOS
+function displayProducts() {
+    const container = document.getElementById("productList");
+    container.innerHTML = "";
+
+    products.forEach((product, index) => {
+        const stockClass = product.stock < 5 ? 'low' : '';
+        const stockText = product.stock === 0 ? 'Agotado' : `${product.stock} disponibles`;
+        const buttonDisabled = product.stock === 0 ? 'disabled' : '';
+
+        container.innerHTML += `
+            <div class="product">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <div class="price">$${product.price.toFixed(2)}</div>
+                <p class="stock ${stockClass}">${stockText}</p>
+                <button onclick="buyProduct(${index})" ${buttonDisabled}>
+                    ${product.stock === 0 ? 'Agotado' : 'Comprar Ahora'}
+                </button>
+            </div>
+        `;
+    });
+}
+
+// COMPRAR PRODUCTO
+function buyProduct(index) {
+    if (products[index].stock > 0) {
+        products[index].stock--;
+        showNotification(`✅ ${products[index].name} agregado al carrito`, 'success');
+    } else {
+        showNotification("❌ Producto agotado", 'error');
+    }
+    displayProducts();
+}
+
+// NOTIFICACIÓN
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        background: ${type === 'success' ? '#4caf50' : '#f44336'};
+        color: white;
+        border-radius: 5px;
+        z-index: 1000;
+        animation: slideIn 0.3s ease;
+    `;
+    document.body.appendChild(notification);
+    setTimeout(() => notification.remove(), 3000);
+}
+
+// INICIAR
+document.addEventListener('DOMContentLoaded', displayProducts);

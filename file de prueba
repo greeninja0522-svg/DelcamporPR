@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Del Campo P.R. - Productos agrícolas frescos de Puerto Rico">
+    <title>Del Campo P.R. | Productos Frescos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2e7d32;
+            --dark: #1b5e20;
+            --light: #81c784;
+            --text: #333;
+            --gray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--gray);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            background-color: var(--primary);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .benefits-grid, .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .benefit-card, .product {
+            background: linear-gradient(135deg, #f0f7f0, #e8f5e9);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .benefit-card:hover, .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 2.5em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card h3, .product h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.8em;
+            color: var(--primary);
+            font-weight: 700;
+            margin: 12px 0;
+        }
+
+        .stock {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+
+        .stock.low {
+            color: #d32f2f;
+            font-weight: 600;
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .contact-info {
+            text-align: center;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 1.05em;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            nav {
+                gap: 0;
+            }
+
+            nav a {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🌾 Del Campo P.R.</h1>
+        <p>Productos agrícolas frescos de Puerto Rico</p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="container">
+
+        <section class="section" id="inicio">
+            <h2>¿Por Qué Elegir Del Campo P.R.?</h2>
+            <p style="text-align: center; font-size: 1.05em;">
+                Somos una cooperativa de agricultores puertorriqueños comprometidos con ofrecer 
+                productos de la más alta calidad, cultivados de forma natural y sostenible.
+            </p>
+        </section>
+
+        <section class="section" id="beneficios">
+            <h2>Nuestros Beneficios</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">🥗</span>
+                    <h3>100% Natural</h3>
+                    <p>Sin químicos ni pesticidas</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">😋</span>
+                    <h3>Mejor Sabor</h3>
+                    <p>Fresco del campo a tu mesa</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🌱</span>
+                    <h3>Apoyo Local</h3>
+                    <p>Impulsa la economía local</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">💪</span>
+                    <h3>Más Saludable</h3>
+                    <p>Nutrientes completos</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="productos">
+            <h2>Nuestros Productos</h2>
+            <div class="products-grid" id="productList"></div>
+        </section>
+
+        <section class="section" id="contacto">
+            <h2>Contacto</h2>
+            <div class="contact-info">
+                <p><strong>Email:</strong> info@delcampopr.com</p>
+                <p><strong>Teléfono:</strong> (787) 555-0123</p>
+                <p><strong>Ubicación:</strong> Puerto Rico 🇵🇷</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Del Campo P.R. Todos los derechos reservados.</p>
+        <p>Cultivamos con pasión. Vendemos con honestidad.</p>
+    </footer>
+
+    <script>
+        const products = [
+            { name: "Huevos Frescos", price: 5.99, stock: 20, desc: "100% frescos de granja" },
+            { name: "Queso Artesanal", price: 8.50, stock: 15, desc: "Hecho por manos expertas" },
+            { name: "Pan Casero", price: 4.99, stock: 25, desc: "Recién horneado" },
+            { name: "Café Puertorriqueño", price: 10.99, stock: 10, desc: "Tostado localmente" }
+        ];
+
+        function displayProducts() {
+            const container = document.getElementById("productList");
+            container.innerHTML = "";
+
+            products.forEach((product, index) => {
+                const stockClass = product.stock < 5 ? 'low' : '';
+                const stockText = product.stock === 0 ? 'Agotado' : `${product.stock} disponibles`;
+                const buttonDisabled = product.stock === 0 ? 'disabled' : '';
+
+                container.innerHTML += `
+                    <div class="product">
+                        <h3>${product.name}</h3>
+                        <p>${product.desc}</p>
+                        <div class="price">$${product.price.toFixed(2)}</div>
+                        <p class="stock ${stockClass}">${stockText}</p>
+                        <button onclick="buyProduct(${index})" ${buttonDisabled}>
+                            ${product.stock === 0 ? 'Agotado' : 'Comprar'}
+                        </button>
+                    </div>
+                `;
+            });
+        }
+
+        function buyProduct(index) {
+            if (products[index].stock > 0) {
+                products[index].stock--;
+                alert(`✅ ${products[index].name} agregado al carrito`);
+            } else {
+                alert("❌ Producto agotado");
+            }
+            displayProducts();
+        }
+
+        displayProducts();
+    </script>
+
+</body>
+</html>
